@@ -1,8 +1,8 @@
 output "dn_hosted_zone" {
-    description = "hosted zone for deepthinalla.com"
+    description = "hosted zone for test.deepthinalla.com"
     value = {
-        zone_id = aws_route53_zone.deepthinalla.zone_id
-        name_servers = aws_route53_zone.deepthinalla.name_servers
+        zone_id = aws_route53_zone.deepthinalla_test.zone_id
+        name_servers = aws_route53_zone.deepthinalla_test.name_servers
     }
 }
 
