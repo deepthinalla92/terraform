@@ -1,0 +1,22 @@
+{
+    
+    "variables": {
+        "region": "{{env `AWS_REGION`}}"
+    },
+    "builders": [{
+        "name": "ec2-instance",
+        "type": "amazon-ebs",
+        "ami_name": "linux-image-hosting-deepthi-nall",
+        "instance_type": "t2.micro",
+        "source_ami": "ami-08d489468314a58df",
+        "region": "{{user `AWS_REGION`}}",
+        "ssh_username": "ec2-user"
+    }
+    ],
+    "provisioners":[
+        {
+            "type": "shell",
+            "scripts": ["script.sh"]
+        }
+    ]
+}

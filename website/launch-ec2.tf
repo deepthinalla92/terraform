@@ -4,9 +4,10 @@ provider "aws" {
 }
 
 resource "aws_instance" "ec2" {
-    ami = "ami-09dd4001591d020e1"
+    ami = "ami-00f9b857d2e4ff4e8"
     instance_type = "t2.micro"
     key_name = "terraform"
+    user_data = "${file("./docker-run.sh")}"
 }
 
 resource "aws_route53_zone" "deepthinalla_test" {
@@ -28,3 +29,4 @@ resource "aws_route53_record" "deepthinalla-A" {
     ttl = "100"
     records = [aws_instance.ec2.public_ip]
 }
+
