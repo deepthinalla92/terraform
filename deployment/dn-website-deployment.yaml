@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: dn-website-deployment
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dn-website-pod
+  template: 
+    metadata:
+      labels:
+        app: dn-website-pod
+    spec:
+      containers:
+      - name: dn-website
+        image: deepthinalla/dn-website:0.1
+
